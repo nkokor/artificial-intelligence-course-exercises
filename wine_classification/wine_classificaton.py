@@ -18,6 +18,7 @@ def define_model():
    model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
    return model
 
+
 #loading data from external csv files
 current_directory = os.path.dirname(os.path.abspath(__file__))
 file_path1 = os.path.join(current_directory, 'data', 'winequality-red.csv')
@@ -53,11 +54,11 @@ scaler = StandardScaler().fit(x_train)
 X_train = scaler.transform(x_train)
 X_test = scaler.transform(x_test)
 
-#defining and training the model
+#model defining and training
 model = define_model()
 history = model.fit(x_train, y_train, epochs=20, batch_size=16)
 
-#evaluating the model
+#model evaluation
 results = model.evaluate(x_test, y_test)
 print('Loss: ', results[0])
 print('Accuracy: ', results[1] * 100, '%')
