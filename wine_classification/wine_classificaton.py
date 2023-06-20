@@ -1,3 +1,4 @@
+import os
 import numpy as np
 import pandas as pd
 
@@ -18,8 +19,11 @@ def define_model():
    return model
 
 #loading data from external csv files
-red_wine_data = pd.read_csv('data/winequality-red.csv', sep=';')
-white_wine_data = pd.read_csv('data/winequality-white.csv', sep=';')
+current_directory = os.path.dirname(os.path.abspath(__file__))
+file_path1 = os.path.join(current_directory, 'data', 'winequality-red.csv')
+red_wine_data = pd.read_csv(file_path1, sep=';')
+file_path2 = os.path.join(current_directory, 'data', 'winequality-white.csv')
+white_wine_data = pd.read_csv(file_path2, sep=';')
 
 #inspecting data structure by viewing a few rows
 print(red_wine_data.head(5))
