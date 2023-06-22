@@ -37,7 +37,7 @@ data = pd.read_csv(file_path, sep=',')
 #inspecting data structure by viewing a few rows
 print(data.head(5))
 
-#viewing data characteristics
+#inspecting data characteristics
 print(data.describe())
 
 #splitting data to characteristics data and labels
